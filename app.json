@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "Datez",
+    "slug": "datez",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "datez",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "backgroundColor": "#FFEEF2",
+      "resizeMode": "contain"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.datez.app"
+    },
+    "android": {
+      "package": "com.datez.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#FFEEF2"
+      }
+    },
+    "web": {
+      "bundler": "metro"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "907e07f5-d3ff-4b97-9552-d2ae13e32bf5"
+      }
+    },
+    "owner": "drey771"
+  }
+}
