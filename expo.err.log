@@ -1,0 +1,21 @@
+C:\Users\User\Documents\Codex\2026-05-18\lets-build-a-dating-app-called\node_modules\expo\node_modules\@expo\cli\build\src\utils\errors.js:130
+    throw error;
+    ^
+
+Error: ENOENT: no such file or directory, watch 'C:\Users\User\Documents\Codex\2026-05-18\lets-build-a-dating-app-called\node_modules\.react-native-worklets-zZ0K8Ruz\android\src\main\java\com\swmansion\worklets'
+    at FSWatcher.<computed> (node:internal/fs/watchers:247:19)
+    at Object.watch (node:fs:2503:36)
+    at FallbackWatcher.#watchdir (C:\Users\User\Documents\Codex\2026-05-18\lets-build-a-dating-app-called\node_modules\metro-file-map\src\watchers\FallbackWatcher.js:133:33)
+    at C:\Users\User\Documents\Codex\2026-05-18\lets-build-a-dating-app-called\node_modules\metro-file-map\src\watchers\FallbackWatcher.js:233:31
+    at Walker.<anonymous> (C:\Users\User\Documents\Codex\2026-05-18\lets-build-a-dating-app-called\node_modules\metro-file-map\src\watchers\FallbackWatcher.js:378:5)
+    at Walker.emit (node:events:524:28)
+    at C:\Users\User\Documents\Codex\2026-05-18\lets-build-a-dating-app-called\node_modules\walker\lib\walker.js:69:16
+    at FSReqCallback.oncomplete (node:fs:187:23) {
+  errno: -4058,
+  syscall: 'watch',
+  code: 'ENOENT',
+  path: 'C:\\Users\\User\\Documents\\Codex\\2026-05-18\\lets-build-a-dating-app-called\\node_modules\\.react-native-worklets-zZ0K8Ruz\\android\\src\\main\\java\\com\\swmansion\\worklets',
+  filename: 'C:\\Users\\User\\Documents\\Codex\\2026-05-18\\lets-build-a-dating-app-called\\node_modules\\.react-native-worklets-zZ0K8Ruz\\android\\src\\main\\java\\com\\swmansion\\worklets'
+}
+
+Node.js v20.20.0

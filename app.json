@@ -31,6 +31,9 @@
         "projectId": "907e07f5-d3ff-4b97-9552-d2ae13e32bf5"
       }
     },
-    "owner": "drey771"
+    "owner": "drey771",
+    "plugins": [
+      "expo-font"
+    ]
   }
 }
