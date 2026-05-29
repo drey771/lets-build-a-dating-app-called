@@ -2,6 +2,7 @@ import * as React from "react";
 import { makeRedirectUri } from "expo-auth-session";
 import * as Google from "expo-auth-session/providers/google";
 import * as WebBrowser from "expo-web-browser";
+import { GoogleSignin, statusCodes } from "@react-native-google-signin/google-signin";
 import { Platform } from "react-native";
 import {
   GoogleAuthProvider,
@@ -14,6 +15,13 @@ import { firebaseAuth } from "../lib/firebase";
 import { upsertProfile } from "../lib/profiles";
 
 WebBrowser.maybeCompleteAuthSession();
+
+if (Platform.OS !== "web") {
+  GoogleSignin.configure({
+    webClientId: process.env.EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID,
+    iosClientId: process.env.EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID
+  });
+}
 
 type AuthContextValue = {
   booting: boolean;
@@ -33,7 +41,10 @@ const googleRedirectUri =
         path: "oauth",
         preferLocalhost: true
       })
-    : undefined;
+    : makeRedirectUri({
+        scheme: "datez",
+        path: "oauthredirect"
+      });
 
 export function AuthProvider({ children }: React.PropsWithChildren) {
   const [booting, setBooting] = React.useState(true);
@@ -86,6 +97,31 @@ export function AuthProvider({ children }: React.PropsWithChildren) {
   }, [response]);
 
   const signInWithGoogle = React.useCallback(async () => {
+    if (Platform.OS === "android") {
+      try {
+        await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
+        const signInResult = await GoogleSignin.signIn();
+        const idToken = signInResult.data?.idToken;
+
+        if (!idToken) {
+          throw new Error("Google did not return an Android id token. Check your web client ID.");
+        }
+
+        const credential = GoogleAuthProvider.credential(idToken);
+        await signInWithCredential(firebaseAuth, credential);
+      } catch (error) {
+        const code = typeof error === "object" && error !== null && "code" in error ? error.code : undefined;
+
+        if (code === statusCodes.SIGN_IN_CANCELLED) {
+          return;
+        }
+
+        throw error;
+      }
+
+      return;
+    }
+
     await promptAsync();
   }, [promptAsync]);
 

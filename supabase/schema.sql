@@ -37,3 +37,25 @@ alter table public.profiles enable row level security;
 alter table public.matches enable row level security;
 alter table public.chats enable row level security;
 alter table public.messages enable row level security;
+
+-- Development policies for the Firebase-auth prototype.
+-- Replace these before production with policies that validate Firebase JWTs
+-- or move auth fully into Supabase Auth.
+drop policy if exists "profiles are readable during development" on public.profiles;
+create policy "profiles are readable during development"
+on public.profiles
+for select
+using (true);
+
+drop policy if exists "profiles are writable during development" on public.profiles;
+create policy "profiles are writable during development"
+on public.profiles
+for insert
+with check (true);
+
+drop policy if exists "profiles are editable during development" on public.profiles;
+create policy "profiles are editable during development"
+on public.profiles
+for update
+using (true)
+with check (true);

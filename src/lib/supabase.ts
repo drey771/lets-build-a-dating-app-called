@@ -1,8 +1,9 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createClient } from "@supabase/supabase-js";
 
-const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL;
-const supabaseAnonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY;
+const rawSupabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL?.trim();
+const supabaseUrl = rawSupabaseUrl ? new URL(rawSupabaseUrl).origin : undefined;
+const supabaseAnonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY?.trim();
 
 if (!supabaseUrl || !supabaseAnonKey) {
   console.warn("Supabase environment variables are missing. Add them to .env before using data features.");
