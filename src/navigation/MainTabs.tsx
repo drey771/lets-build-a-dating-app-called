@@ -31,7 +31,7 @@ export function MainTabs() {
         },
         tabBarIcon: ({ color, size }) => {
           const icons: Record<keyof MainTabParamList, keyof typeof Ionicons.glyphMap> = {
-            Home: "heart",
+            Home: "home",
             Chats: "chatbubble-ellipses",
             Profile: "person-circle",
             Settings: "settings"

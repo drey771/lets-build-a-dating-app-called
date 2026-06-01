@@ -34,6 +34,12 @@
     "owner": "drey771",
     "plugins": [
       "expo-font",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Datez uses your photos so you can choose profile and gallery pictures."
+        }
+      ],
       "@react-native-google-signin/google-signin"
     ]
   }
