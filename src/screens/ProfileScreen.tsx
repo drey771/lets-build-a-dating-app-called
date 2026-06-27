@@ -270,7 +270,6 @@ export function ProfileScreen() {
       mediaTypes: ["images"],
       allowsEditing,
       aspect: allowsEditing ? [1, 1] : undefined,
-      base64: true,
       quality: 0.82
     });
 
