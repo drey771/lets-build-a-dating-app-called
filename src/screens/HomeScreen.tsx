@@ -224,7 +224,6 @@ export function HomeScreen() {
       <View style={styles.header}>
         <View>
           <Text style={styles.eyebrow}>Discover</Text>
-          <Text style={styles.title}>Datez</Text>
         </View>
         <Pressable accessibilityLabel="Filter matches" style={styles.iconButton}>
           <Ionicons name="options" size={22} color="#241C21" />
@@ -396,7 +395,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     gap: 12,
     marginBottom: 14,
-    padding: 14
+    padding:8
   },
   safetyIcon: {
     alignItems: "center",
@@ -428,10 +427,10 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
   card: {
-    aspectRatio: 0.74,
+    aspectRatio: 0.75,
     borderRadius: 28,
     justifyContent: "flex-end",
-    minHeight: 470,
+    minHeight: 350,
     overflow: "hidden"
   },
   cardImage: {
